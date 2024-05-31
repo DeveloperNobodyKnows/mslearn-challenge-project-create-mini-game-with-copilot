@@ -1,4 +1,8 @@
 # Description: This is a simple rock, paper, scissors game that will be played in the terminal
+# Copilot generated almost all of the code with my guidance. I realized that Copilot needs
+# help when creating complex programs. The code was nearly perfect. The flaw might 
+# have been my vague prompts. Or the AI might have been confused about the end goal.
+# In summary, the process is collaborative where I guide the AI to generate the code I want.
 
 # import necessary modules for the game
 import random
@@ -93,14 +97,15 @@ def play_game():
         rounds_played = display_rounds_played(rounds_played)
         print(f"Round {rounds_played}: {winner}")
         # If the player decides to stop playing, the game will end and the total number of rounds played and total player wins will be displayed
-        if input("Do you want to play again? (yes/no): ").lower() != "yes":
-            print()
+        endgame = input("Do you want to play again? (yes/no): ").lower()
+        while endgame != "yes" and endgame != "no":
+            endgame = input("Invalid choice. Choose yes or no: ")
+        if endgame == "no":
             print()
             print("Game Over!")
             display_total_wins(player_score)
             print(f"Total rounds played: {rounds_played}")
             break
-
 
 # Call the functions to play the game
 play_game()
